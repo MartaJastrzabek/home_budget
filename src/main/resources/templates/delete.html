@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css" th:href="@{/style.css}"/>
+</head>
+<body>
+<div class="site">
+    <div class="header">
+        <h1>Aplikacja do kontroli budżetu domowego</h1>
+    </div>
+    <div class="form">
+        <h3>Usuń istniejącą transakcje</h3>
+        <form action="/delete" method="post">
+            <div class="form-element">
+                <label for="id">Podaj id elementu do usunięcia: </label>
+                <input required type="text" name="id" id="id">
+            </div>
+            <div class="form-element">
+                <input type="submit" value="Usuń!">
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
