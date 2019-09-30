@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css" th:href="@{/style.css}"/>
+</head>
+<body>
+<div class="site">
+    <div class="header">
+        <h1>Aplikacja do kontroli budżetu domowego</h1>
+    </div>
+    <div class="form">
+        <h3 th:text="${transactionHeader}">Dodaj nową transakcje</h3>
+        <form action="/edit" method="post" th:object="${transaction}">
+            <div class="form-element">
+                <label for="id">Podaj id transakcji: </label>
+                <input required type="number" th:field="*{id}" name="id" id="id">
+            </div>
+            <div class="form-element">
+                <label for="type">Typ transakcji</label>
+                <select required name="type" id="type">
+                    <option disabled selected>Wybierz...</option>
+                    <option th:field="*{type}" value="EXPENSE">Wydatek</option>
+                    <option th:field="*{type}" value="INCOME">Dochód</option>
+                </select>
+            </div>
+            <div class="form-element">
+                <label for="description">Opis: </label>
+                <input required type="text" th:field="*{description}" name="description" id="description">
+            </div>
+            <div class="form-element">
+                <label for="amount">Kwota: </label>
+                <input required type="number" step="0.01" th:field="*{amount}" name="amount" id="amount">
+            </div>
+            <div class="form-element">
+                <label for="date">Data:</label>
+                <input required type="date" th:field="*{date}" id="date" name="date">
+            </div>
+            <div class="form-element">
+                <input type="submit" value="Zmień!">
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

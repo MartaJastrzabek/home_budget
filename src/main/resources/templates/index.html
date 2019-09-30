@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css" th:href="@{/style.css}"/>
+</head>
+<body>
+<div class="site">
+    <div class="header">
+        <h1>Aplikacja do kontroli budżetu domowego</h1>
+    </div>
+    <div class="menu">
+        <div class="menu-element">
+            <a href="/add">Dodaj nową transakcję</a>
+        </div>
+        <div class="menu-element">
+            <a href="/edit">Modyfikuj istniejącą transakcję</a>
+        </div>
+        <div class="menu-element">
+            <a href="/delete">Usuń transakcję</a>
+        </div>
+    </div>
+
+    <div class="show-menu">
+        <div class="menu-element">
+            <a href="/">Pokaż wszystkie transakcje</a>
+        </div>
+        <div class="menu-element">
+            <a href="/?type=EXPENSE">Pokaż wydatki</a>
+        </div>
+        <div class="menu-element">
+            <a href="/?type=INCOME">Pokaż dochody</a>
+        </div>
+    </div>
+
+    <div class="transactions">
+        <h2>Lista transakcji</h2>
+        <ul class="transactions-list">
+            <li th:each="transaction: ${transactions}" th:text="${transaction.toString()}">
+            </li>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>
